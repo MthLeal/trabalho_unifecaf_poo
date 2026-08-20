@@ -1,25 +1,26 @@
 from abc import ABC, abstractmethod
 
+
 class Imovel(ABC):
 
-    def __init__(self, valor_base: float=0.0):
+    def __init__(self, valor_base: float = 0.0):
         self.valor_base = valor_base
 
     @abstractmethod
-    def calcular_valor_mensal(self) -> float:
-        ...
-
+    def calcular_valor_mensal(self) -> float: ...
 
 
 class Apartamento(Imovel):
     def __init__(self, quartos=1, garagem=0, possui_criancas=True):
         super().__init__(700.0)
         if 1 > quartos > 2:
-            raise ValueError('Quantidade de quartos inválida.')
+            raise ValueError("Quantidade de quartos inválida.")
         if 0 > garagem > 1:
-            raise ValueError('Quantidade de garagem inválida.')
+            raise ValueError("Quantidade de garagem inválida.")
         if type(possui_criancas) != bool:
-            raise TypeError('Formato inválido para configuração de crianças no apartamento.')
+            raise TypeError(
+                "Formato inválido para configuração de crianças no apartamento."
+            )
         self.quartos = quartos
         self.garagem = garagem
         self.possui_criancas = possui_criancas
@@ -31,14 +32,13 @@ class Apartamento(Imovel):
         return valor
 
 
-
 class Casa(Imovel):
     def __init__(self, quartos=1, garagem=0):
         super().__init__(900)
         if 1 > quartos > 2:
-            raise ValueError('Quantidade de quartos inválida.')
+            raise ValueError("Quantidade de quartos inválida.")
         if 0 > garagem > 1:
-            raise ValueError('Quantidade de garagem inválida.')
+            raise ValueError("Quantidade de garagem inválida.")
         self.quartos = quartos
         self.garagem = garagem
 
@@ -47,12 +47,11 @@ class Casa(Imovel):
         return valor
 
 
-
 class Estudio(Imovel):
     def __init__(self, vagas_estacionamento=0):
         super().__init__(1200.00)
         if vagas_estacionamento < 0:
-            raise ValueError('Quantidade de vagas de estacionamento inválida.')
+            raise ValueError("Quantidade de vagas de estacionamento inválida.")
         self.vagas_estacionamento = vagas_estacionamento
 
     def calcular_valor_mensal(self):

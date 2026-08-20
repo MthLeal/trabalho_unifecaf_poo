@@ -11,7 +11,12 @@ Sistema de gerenciamento de orçamentos imobiliários, com operações executada
 git clone https://github.com/MthLeal/trabalho_unifecaf_poo.git
 ```
 
-2. Execute o programa (localmente):
+2. Instale as dependências:
+```
+pip install -r requirements.txt
+```
+
+3. Execute o programa (localmente):
 ```
 python main.py
 ```
